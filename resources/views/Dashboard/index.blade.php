@@ -1,12 +1,12 @@
-@extends('layouts.app')
-@section('main')
+@extends('layouts.gest')
+@section('main_login')
+
+
 
 <div class="container-fluid">
-    <div class="kotak">
-    
-        @include('dashboard.navdas')
-
-        <table class="table table-bordered table-striped table-responsive table-sm mt-3" >
+    {{--  <div class="kotak">  --}}
+    @include('dashboard.navdas')
+        <table class="table table-responsive table-bordered table-striped mt-3" >
             <thead>
                 <tr class="thead text-uppercase">
                     <th scope="col">nomor</th>
@@ -62,8 +62,8 @@
       
         {{ $data->links() }}
         
+   
+    {{--  </div>  --}}
 
-       
-    </div>
-</div>
+
 @endsection

@@ -20,5 +20,6 @@
     <body>
             @include('layouts.navbar')
             @yield('main')
+
     </body>
 </html>
