@@ -1,0 +1,1 @@
+<img src="img/favico_io/favicon-32x32.png"  alt="logo">
