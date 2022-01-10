@@ -11,6 +11,7 @@
     {{-- css bootsrap 5.0 --}}
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/mycss.css">
+
     {{-- js poper --}}
     <script src="/js/app.js"></script>
     <title>{{ config('app.name') }}</title>

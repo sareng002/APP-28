@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\pdkmodel;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,9 +12,18 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('Dashboard.index');
+        if ($request)
+        {
+            $data = pdkmodel::where ('nama', 'like' ,'%'.$request->cari.'%')
+                -> orWhere('kk','like', '%'.$request->cari.'%')-> orWhere('nik','like', '%'.$request->cari.'%') -> orWhere('alamat','like', '%'.$request->cari.'%')->simplePaginate(10);
+        }else{
+            // $data = pople::simplePaginate(10);
+            $data= pdkmodel::all();
+        }
+        
+        return view('Dashboard.index')->with(['data'=> $data ]);
         
     }
 
