@@ -17,14 +17,12 @@ class DashboardController extends Controller
         if ($request)
         {
             $data = pdkmodel::where ('nama', 'like' ,'%'.$request->cari.'%')
-                -> orWhere('kk','like', '%'.$request->cari.'%')-> orWhere('nik','like', '%'.$request->cari.'%') -> orWhere('alamat','like', '%'.$request->cari.'%')->simplePaginate(10);
+                -> orWhere('kk','like', '%'.$request->cari.'%')-> orWhere('nik','like', '%'.$request->cari.'%') -> orWhere('alamat','like', '%'.$request->cari.'%')->Paginate(10);
         }else{
-            // $data = pople::simplePaginate(10);
+            $data = pdkmodel::Paginate(10);
             $data= pdkmodel::all();
         }
-        
         return view('Dashboard.index')->with(['data'=> $data ]);
-        
     }
 
     /**
@@ -45,7 +43,9 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->except(['_token']);
+        pdkmodel :: insert ($data);
+        return redirect('/Dashboard') ->with('success_message', 'Berhasil menambah user baru');
     }
 
     /**
@@ -56,7 +56,9 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        //
+         $data= pdkmodel::findOrFail($id);
+        return View ('Dashboard/editdata') ->with([ 'data'=> $data ]) ;
+        // return View ('/editdata') ->with([ 'data'=> $data ]) ;
     }
 
     /**
@@ -79,7 +81,10 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = pdkmodel::findOrFail($id);
+        $data = $request->except(['_token']);
+        $item->update($data);
+        return Redirect('/Dashboard');
     }
 
     /**
@@ -90,6 +95,17 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = pdkmodel::findOrFail($id);
+        $item->delete();
+        return Redirect('/Dashboard');
+    }
+
+    public function tambahdata(Request $request)
+    {
+        return view('dashboard.tambahdata');
+    }
+    public function editdata(Request $request)
+    {
+        return view('dashboard.editdata');
     }
 }

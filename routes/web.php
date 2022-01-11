@@ -16,4 +16,12 @@ Route::post('/logout', [LoginController::class,'logout'])->middleware('auth');
 Route::get('/register', [RegisterController::class,'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class,'store'])->middleware('guest');
 
-Route::get('/Dashboard',[DashboardController::class,'index'])->middleware('auth');
+Route::get('/Dashboard',[DashboardController::class,'index'])->name('Dashboard')->middleware('auth');
+Route::get('/tambahdata',[DashboardController::class,'tambahdata'])->middleware('auth');
+Route::get('/editdata',[DashboardController::class,'editdata'])->middleware('auth');
+
+Route::get('/destroy/{id}',[DashboardController::class,'destroy'])->middleware('auth');
+
+Route::get('/editdata/{id}',[DashboardController::class,'show']) ->middleware('auth');
+Route::post('/editdata/{id}',[DashboardController::class,'update'])->name('eitdata')->middleware('auth');
+Route::post('/tambahdata',[DashboardController::class,'store'])->middleware('auth');
