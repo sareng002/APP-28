@@ -15,16 +15,17 @@
                     <th scope="col">tempat Lahir</th>
                     <th scope="col">Tanggal Lahir</th>
                     <th scope="col">Aksi</th>
+                    
                 </tr>
             </thead>
             <tbody>
-                @php
+                {{--  @php
                     $i=1;
-                @endphp
+                @endphp  --}}
                 @foreach ($data as $item)
                 
                 <tr>
-                    <th scope="row">{{ $i++ }}</th>
+                    <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $item->nik }}</td>
                     <td>{{ $item->kk }}</td>
                     <td>{{ $item->nama }}</td>
@@ -32,6 +33,7 @@
                     <td>{{ $item->tempat_lahir }}</td>
                     <td>{{ $item->tgl_lahir->isoFormat('DD/MM/Y') }}.</td>
                     <td>{{ $item->alamat }}</td>
+                    
                     <td>
                         <a  href="{{ url('/editdata/'.$item->id)}}" class="text-decoration-none">
                             <i class="text-warning mx-2">
@@ -59,23 +61,23 @@
         
         {{--  seting halaman  --}}
 
-            <nav class="navbar-nav align-items-lg-center justify-content-center text-secondary" aria-label="...">
-                <ul class="pagination pagination-sm">
-                    <li class="page-item" aria-current="page">
-                        <i class="text-center text-secondary mb-2">{{ $data->links() }}</i>
-                    </li>    
-                    <li class="page-item mx-5 px-2" aria-current="page">
-                        <i><span>
-                                Jumlah Data perhalaman: {{ $data->perPage() }}
-                            </span>
-                            <span class="mx-5 px-2">
-                                Halaman Ke : {{ $data->currentPage() }} 
-                            </span>
-                        </i>
-                        <i>Jumlah Banyak Nya Data {{ $data->total() }} Jiwa</i>
-                    </li>    
-                </ul>
-            </nav>
+        <nav class="navbar-nav align-items-lg-center justify-content-center text-secondary" aria-label="...">
+            <ul class="pagination pagination-sm">
+                <li class="page-item" aria-current="page">
+                    <i class="text-center text-secondary mb-2">{{ $data->links() }}</i>
+                </li>    
+                <li class="page-item mx-5 px-2" aria-current="page">
+                    <i><span>
+                            Jumlah Data perhalaman: {{ $data->perPage() }}
+                        </span>
+                        <span class="mx-5 px-2">
+                            Halaman Ke : {{ $data->currentPage() }} 
+                        </span>
+                    </i>
+                    <i>Jumlah Banyak Nya Data {{ $data->total() }} Jiwa</i>
+                </li>    
+            </ul>
+        </nav>
     </div>
 
 

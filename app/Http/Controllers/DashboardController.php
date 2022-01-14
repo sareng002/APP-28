@@ -100,12 +100,14 @@ class DashboardController extends Controller
         return Redirect('/Dashboard');
     }
 
-    public function tambahdata(Request $request)
-    {
-        return view('dashboard.tambahdata');
-    }
-    public function editdata(Request $request)
-    {
-        return view('dashboard.editdata');
-    }
+    // public function tambahdata(Request $request)
+    // {
+    //     return view('dashboard.tambahdata');
+    // }
+    // public function editdata(Request $request)
+    // {
+    //     return view('dashboard.editdata');
+    // }
+
+    
 }

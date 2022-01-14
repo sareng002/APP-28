@@ -12,6 +12,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/tambahdata">Tambahdata</a>
         </li> 
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/chart">Tambah Postingan</a>
+        </li> 
       </ul>
       <form class="d-flex">
         <input class="form-control me-0" name="cari" type="search" placeholder="Search" aria-label="Search">
