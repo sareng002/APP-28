@@ -7,6 +7,7 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        <p>Designed by <strong>SUTIYOSO</strong></p>
+        download projetc saya silakan menuju ke <a href="https://github.com/sareng002/APP-28.git">ke  git hup saya</a>
     </div>
 </footer>

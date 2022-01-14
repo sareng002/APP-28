@@ -6,9 +6,9 @@
 <div class="row">
     <div class="col col-lg-12">
         <div class="card">
-            <div class="card-hede">
+            <div class="card-hede mx-3 mb-2 text-secondary">
                 <h3 class="text-center mt-3">Data Penduduk</h3>
-                
+                <i>Jumlah Banyak Nya Data {{ $data->total() }} Jiwa</i>
             </div>
             <div class="card-bod mt-2">
                 <table class="table table-bordered table-sm table-responsive" >
@@ -64,7 +64,6 @@
             </div>
             <div class="card-footer">
                      {{--  seting halaman  --}}
-
                 <nav class="navbar-nav align-items-lg-center justify-content-center text-secondary" aria-label="...">
                     <ul class="pagination pagination-sm">
                         <li class="page-item" aria-current="page">
@@ -78,7 +77,7 @@
                                     Halaman Ke : {{ $data->currentPage() }} 
                                 </span>
                             </i>
-                            <i>Jumlah Banyak Nya Data {{ $data->total() }} Jiwa</i>
+                            
                         </li>    
                     </ul>
                 </nav>
